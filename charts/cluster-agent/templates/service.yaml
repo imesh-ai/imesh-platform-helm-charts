@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include ".Values.clusterAgent.fullname" . }}
+  labels:
+    {{- include ".Values.clusterAgent.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.clusterAgent.env.httpPort }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include ".Values.clusterAgent.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,52 @@
+clusterAgent:
+  replicaCount: 1
+
+  image:
+    repository: imeshai/agent
+    pullPolicy: IfNotPresent
+    tag: v0.1
+
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+
+  podAnnotations: {}
+  podLabels: {}
+
+  env:
+    # (REQUIRED) Agent token as provided by the UI
+    agentToken: "ABCDEFGHIJ123456"
+    # HTTP port, used for health check endpoint
+    httpPort: 8080
+    # DEBUG, WARNING, or INFO
+    logLevel: DEBUG
+    # IMESH Platform URL
+    natsUrl: nats://services.imesh.ai:4222
+    # Prometheus endpoint for metric collection
+    prometheusEndpoint: prometheus.istio-system:9090
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+
+prometheus:
+  enabled: true
+  prometheus-node-exporter:
+    enabled: false
+  kube-state-metrics:
+    enabled: false
+  prometheus-pushgateway:
+    enabled: false
+  alertmanager:
+    enabled: false
+
+  server:
+    persistentVolume:
+      enabled: false

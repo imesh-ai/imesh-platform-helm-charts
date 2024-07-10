@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include ".Values.clusterAgent.fullname" . }}
+  labels:
+    {{- include ".Values.clusterAgent.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.clusterAgent.autoscaling.enabled }}
+  replicas: {{ .Values.clusterAgent.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include ".Values.clusterAgent.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.clusterAgent.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include ".Values.clusterAgent.labels" . | nindent 8 }}
+        {{- with .Values.clusterAgent.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.clusterAgent.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include ".Values.clusterAgent.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          env:
+          - name: AGENT_TOKEN
+            value: {{ .Values.clusterAgent.env.agentToken | quote }}
+          - name: HTTP_PORT
+            value: {{ .Values.clusterAgent.env.httpPort | quote }}
+          - name: LOG_LEVEL
+            value: {{ .Values.clusterAgent.env.logLevel | quote }}
+          - name: NATS_URL
+            value: {{ .Values.clusterAgent.env.natsUrl | quote }}
+          - name: PROMETHEUS_ENDPOINT
+            value: {{ .Values.clusterAgent.env.prometheusEndpoint | quote }}
+          - name: QUEUE_GROUP
+            value: agents
+          - name: ENVIRONMENT
+            value: production
+          image: "{{ .Values.clusterAgent.image.repository }}:{{ .Values.clusterAgent.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.clusterAgent.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.clusterAgent.env.httpPort }}
+              protocol: TCP
