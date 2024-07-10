@@ -37,6 +37,8 @@ spec:
             value: {{ .Values.clusterAgent.env.httpPort | quote }}
           - name: LOG_LEVEL
             value: {{ .Values.clusterAgent.env.logLevel | quote }}
+          - name: GIN_MODE
+            value: release
           - name: NATS_URL
             value: {{ .Values.clusterAgent.env.natsUrl | quote }}
           - name: PROMETHEUS_ENDPOINT
