@@ -24,11 +24,11 @@ clusterAgent:
     # HTTP port, used for health check endpoint
     httpPort: 8080
     # DEBUG, WARNING, or INFO
-    logLevel: DEBUG
+    logLevel: WARNING
     # IMESH Platform URL
     natsUrl: nats://services.imesh.ai:4222
     # Prometheus endpoint for metric collection
-    prometheusEndpoint: prometheus.istio-system:9090
+    prometheusEndpoint: prometheus:9090
 
   autoscaling:
     enabled: false

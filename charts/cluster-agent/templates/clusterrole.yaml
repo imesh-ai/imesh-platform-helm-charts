@@ -7,7 +7,7 @@ metadata:
 rules:
 - apiGroups: [""] # "" indicates the core API group
   resources: ["namespaces", "services", "secrets"]
-  verbs: ["get", "watch", "list", "put", "patch", "create", "delete"]
+  verbs: ["get", "watch", "list", "update", "create", "delete"]
 - apiGroups: ["gateway.networking.k8s.io"] 
   resources: ["gateways", "httproutes"]
-  verbs: ["get", "watch", "list", "put", "patch", "create", "delete"]
+  verbs: ["get", "watch", "list", "update", "create", "delete"]
