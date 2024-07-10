@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include ".Values.clusterAgent.labels" . | nindent 4 }}
 subjects:
-- kind: ServiceAccount
-  name: {{ include ".Values.clusterAgent.serviceAccountName" . }}
-  namespace: {{ .Release.Namespace }}
+  - kind: ServiceAccount
+    name: {{ include ".Values.clusterAgent.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
   name: {{ include ".Values.clusterAgent.name" . }}
