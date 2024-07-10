@@ -19,4 +19,4 @@ To install the cluster-agent chart:
 
 To uninstall the chart:
 
-    helm delete agent
+    helm delete agent --namespace imesh

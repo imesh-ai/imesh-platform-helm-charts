@@ -1,1 +1,2 @@
-1. Get the application URL by running these commands:
+Agent installed successfully.
+To uninstall run: helm delete agent --namespace imesh
