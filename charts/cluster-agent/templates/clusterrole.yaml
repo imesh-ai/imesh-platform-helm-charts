@@ -4,10 +4,10 @@ metadata:
   name: {{ include ".Values.clusterAgent.name" . }}
   labels:
     {{- include ".Values.clusterAgent.labels" . | nindent 4 }}
-spec:
-  - apiGroups: [""] # "" indicates the core API group
-    resources: ["namespaces", "services", "secrets"]
-    verbs: ["get", "watch", "list", "put", "patch", "create", "delete"]
-  - apiGroups: ["gateway.networking.k8s.io"] 
-    resources: ["gateways", "httproutes"]
-    verbs: ["get", "watch", "list", "put", "patch", "create", "delete"]
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["namespaces", "services", "secrets"]
+  verbs: ["get", "watch", "list", "put", "patch", "create", "delete"]
+- apiGroups: ["gateway.networking.k8s.io"] 
+  resources: ["gateways", "httproutes"]
+  verbs: ["get", "watch", "list", "put", "patch", "create", "delete"]
