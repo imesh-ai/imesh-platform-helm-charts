@@ -42,7 +42,7 @@ spec:
           - name: NATS_URL
             value: {{ .Values.clusterAgent.env.natsUrl | quote }}
           - name: PROMETHEUS_ENDPOINT
-            value: {{ .Values.clusterAgent.env.prometheusEndpoint | quote }}
+            value: {{ .Values.clusterAgent.env.prometheusEndpoint | default (printf "%s:%d" (include "prometheus.server.fullname" .Subcharts.prometheus) (.Values.prometheus.server.service.servicePort | int )) | quote }}
           - name: QUEUE_GROUP
             value: agents
           - name: ENVIRONMENT

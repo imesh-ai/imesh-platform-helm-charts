@@ -1,2 +1,2 @@
 Agent installed successfully.
-To uninstall run: helm delete agent --namespace imesh
+To uninstall run: helm uninstall agent --namespace imesh

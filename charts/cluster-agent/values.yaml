@@ -28,7 +28,7 @@ clusterAgent:
     # IMESH Platform URL
     natsUrl: nats://services.imesh.ai:4222
     # Prometheus endpoint for metric collection
-    prometheusEndpoint: prometheus:9090
+    # prometheusEndpoint: prometheus:9090
 
   autoscaling:
     enabled: false
