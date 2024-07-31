@@ -41,8 +41,10 @@ spec:
             value: release
           - name: NATS_URL
             value: {{ .Values.clusterAgent.env.natsUrl | quote }}
+          {{ if eq .Values.prometheus.enabled true }}
           - name: PROMETHEUS_ENDPOINT
             value: {{ .Values.clusterAgent.env.prometheusEndpoint | default (printf "%s:%d" (include "prometheus.server.fullname" .Subcharts.prometheus) (.Values.prometheus.server.service.servicePort | int )) | quote }}
+          {{ end }}
           - name: QUEUE_GROUP
             value: agents
           - name: ENVIRONMENT
