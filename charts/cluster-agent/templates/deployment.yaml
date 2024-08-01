@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include ".Values.clusterAgent.fullname" . }}
+  name: {{ include ".Values.clusterAgent.name" . }}
   labels:
     {{- include ".Values.clusterAgent.labels" . | nindent 4 }}
+    version: {{ .Chart.Version }}
+    app: {{ include ".Values.clusterAgent.name" . }}
 spec:
   {{- if not .Values.clusterAgent.autoscaling.enabled }}
   replicas: {{ .Values.clusterAgent.replicaCount }}
@@ -18,6 +20,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
+        version: {{ .Chart.Version }}
+        app: {{ include ".Values.clusterAgent.name" . }}
         {{- include ".Values.clusterAgent.labels" . | nindent 8 }}
         {{- with .Values.clusterAgent.podLabels }}
         {{- toYaml . | nindent 8 }}
@@ -55,3 +59,5 @@ spec:
             - name: http
               containerPort: {{ .Values.clusterAgent.env.httpPort }}
               protocol: TCP
+          resources:
+            {{- toYaml .Values.clusterAgent.resources | nindent 12 }}

@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include ".Values.clusterAgent.fullname" . }}
+  name: {{ include ".Values.clusterAgent.name" . }}
   labels:
     {{- include ".Values.clusterAgent.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include ".Values.clusterAgent.fullname" . }}
+    name: {{ include ".Values.clusterAgent.name" . }}
   minReplicas: {{ .Values.clusterAgent.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.clusterAgent.autoscaling.maxReplicas }}
   metrics:

@@ -18,6 +18,14 @@ clusterAgent:
   podAnnotations: {}
   podLabels: {}
 
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 250m
+      memory: 512Mi
+
   env:
     # (REQUIRED) Agent token as provided by the UI
     agentToken: "ABCDEFGHIJ123456"
