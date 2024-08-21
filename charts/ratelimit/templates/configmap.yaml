@@ -1,0 +1,12 @@
+{{ if .Values.configurations }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "istio-ratelimit.fullname" . | printf "%s-config" }}
+  labels:
+    {{- include "istio-ratelimit.labels" . | nindent 4 }}
+data:
+{{- with .Values.configurations }}
+  {{- toYaml . | nindent 2 }}
+{{- end }}
+{{ end }}
