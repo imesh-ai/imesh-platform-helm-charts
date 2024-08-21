@@ -76,4 +76,15 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/cluster-agent-0.1.0/cluster-agent-0.1.0.tgz
     version: 0.1.0
-generated: "2024-08-01T06:56:57.776871403Z"
+  ratelimit:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-08-21T18:55:19.847403637Z"
+    description: A Helm chart for istio service mesh ratelimit.
+    digest: da9f375b2ff7aa123fcb1c04edab491dda0c7d3b4076e1f33f1983550934dfdc
+    name: ratelimit
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-08-21T18:55:19.847427172Z"
