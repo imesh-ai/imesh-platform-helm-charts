@@ -58,3 +58,21 @@ configurations:
           unit: minute
           requests_per_unit: 200
 ```
+
+### Installation
+
+Once Helm has been set up correctly, add the repo as follows:
+
+  helm repo add imesh https://charts.imesh.ai
+
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages.  You can then run `helm search repo
+imesh` to see the charts.
+
+To install the ratelimit chart in default mode:
+
+    helm install imesh-ratelimit imesh/ratelimit --namespace imesh --create-namespace
+
+To uninstall the chart:
+
+    helm delete imesh-ratelimit --namespace imesh
