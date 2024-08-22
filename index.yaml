@@ -79,6 +79,16 @@ entries:
   ratelimit:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-08-22T06:20:19.795678723Z"
+    description: A Helm chart for istio service mesh ratelimit.
+    digest: 8afe958d0297e1530ea063eaea227cd6eab8a5116b8443fcd33cabb6cdf7bfeb
+    name: ratelimit
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.1/ratelimit-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-08-21T18:55:19.847403637Z"
     description: A Helm chart for istio service mesh ratelimit.
     digest: da9f375b2ff7aa123fcb1c04edab491dda0c7d3b4076e1f33f1983550934dfdc
@@ -87,4 +97,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2024-08-21T18:55:19.847427172Z"
+generated: "2024-08-22T06:20:19.795697308Z"
