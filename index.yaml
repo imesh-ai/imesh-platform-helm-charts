@@ -3,6 +3,21 @@ entries:
   cluster-agent:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-09-28T06:20:33.137479695Z"
+    dependencies:
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 25.21.0
+    description: A Helm chart for Kubernetes
+    digest: 9c2143b0557faf3ed916288bb34534181bfd0f4e3627e9f774db5c18801b0eb9
+    name: cluster-agent
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/cluster-agent-0.1.6/cluster-agent-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-08-01T06:56:57.776849852Z"
     dependencies:
     - condition: prometheus.enabled
@@ -76,6 +91,31 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/cluster-agent-0.1.0/cluster-agent-0.1.0.tgz
     version: 0.1.0
+  gateway:
+  - apiVersion: v2
+    appVersion: v1.1.1
+    created: "2024-09-28T06:20:33.266059624Z"
+    description: The Helm chart for IMESH Gateway
+    digest: b1178047495ec66866e417ae9fd98c82e8ddb057625a64860d292801b9f44ac0
+    home: https://imesh.ai/
+    icon: https://imesh-platform.s3.amazonaws.com/IMESH-Platform-Logo.png
+    keywords:
+    - gateway-api
+    - envoyproxy
+    - envoy-gateway
+    - eg
+    maintainers:
+    - name: envoy-gateway-steering-committee
+      url: https://github.com/envoyproxy/gateway/blob/main/GOVERNANCE.md
+    - name: envoy-gateway-maintainers
+      url: https://github.com/envoyproxy/gateway/blob/main/CODEOWNERS
+    name: gateway
+    sources:
+    - https://github.com/envoyproxy/gateway
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/gateway-v1.1.1/gateway-v1.1.1.tgz
+    version: v1.1.1
   ratelimit:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -107,4 +147,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-10T11:33:27.394744066Z"
+generated: "2024-09-28T06:20:33.266090873Z"
