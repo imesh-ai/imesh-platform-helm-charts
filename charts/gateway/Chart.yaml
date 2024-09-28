@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: v1.1.1
+description: The Helm chart for IMESH Gateway
+home: https://imesh.ai/
+icon: https://imesh-platform.s3.amazonaws.com/IMESH-Platform-Logo.png
+keywords:
+- gateway-api
+- envoyproxy
+- envoy-gateway
+- eg
+maintainers:
+- name: envoy-gateway-steering-committee
+  url: https://github.com/envoyproxy/gateway/blob/main/GOVERNANCE.md
+- name: envoy-gateway-maintainers
+  url: https://github.com/envoyproxy/gateway/blob/main/CODEOWNERS
+name: gateway
+sources:
+- https://github.com/envoyproxy/gateway
+type: application
+version: v1.1.1

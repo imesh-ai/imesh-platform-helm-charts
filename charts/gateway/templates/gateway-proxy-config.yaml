@@ -1,0 +1,27 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: imesh-gateway
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    name: proxy-config
+    namespace: '{{ .Release.Namespace }}'
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: proxy-config
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  logging:
+    level:
+      default: warn
+  provider:
+    kubernetes:
+      envoyDeployment:
+        container:
+          image: docker.io/imeshai/proxyv2:1.0.0-distroless
+    type: Kubernetes
