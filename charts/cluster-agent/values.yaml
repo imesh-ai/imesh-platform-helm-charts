@@ -45,7 +45,7 @@ clusterAgent:
     targetCPUUtilizationPercentage: 80
 
 prometheus:
-  enabled: false
+  enabled: true
   prometheus-node-exporter:
     enabled: false
   kube-state-metrics:
