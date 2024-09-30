@@ -3,6 +3,21 @@ entries:
   cluster-agent:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-09-30T05:15:39.798244175Z"
+    dependencies:
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 25.21.0
+    description: A Helm chart for Kubernetes
+    digest: c426f89d6865dc8e424abf64a2010c735b36bbb4fedc953dafeb54095ecb3e78
+    name: cluster-agent
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/cluster-agent-0.1.7/cluster-agent-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-09-28T06:20:33.137479695Z"
     dependencies:
     - condition: prometheus.enabled
@@ -147,4 +162,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-28T06:20:33.266090873Z"
+generated: "2024-09-30T05:15:39.798279571Z"
