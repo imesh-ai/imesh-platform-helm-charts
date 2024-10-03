@@ -4,7 +4,7 @@ clusterAgent:
   image:
     repository: imeshai/agent
     pullPolicy: IfNotPresent
-    tag: vb99235b01b78b194a880b698a379e025cbbe8d1c
+    tag: vdd112372aa5481e4e1193aeae3587fba5c9c686f
 
   imagePullSecrets: []
   nameOverride: ""
