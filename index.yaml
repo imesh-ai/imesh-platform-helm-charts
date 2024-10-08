@@ -138,6 +138,30 @@ entries:
     version: 0.1.0
   gateway:
   - apiVersion: v2
+    appVersion: v1.1.2
+    created: "2024-10-08T05:44:55.314496873Z"
+    description: The Helm chart for IMESH Gateway
+    digest: ee26e72643e53328cf7199597b7de120b3bbd88a5684254ae374a75312ac82ce
+    home: https://imesh.ai/
+    icon: https://imesh-platform.s3.amazonaws.com/IMESH-Platform-Logo.png
+    keywords:
+    - gateway-api
+    - envoyproxy
+    - envoy-gateway
+    - eg
+    maintainers:
+    - name: envoy-gateway-steering-committee
+      url: https://github.com/envoyproxy/gateway/blob/main/GOVERNANCE.md
+    - name: envoy-gateway-maintainers
+      url: https://github.com/envoyproxy/gateway/blob/main/CODEOWNERS
+    name: gateway
+    sources:
+    - https://github.com/envoyproxy/gateway
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/gateway-v1.1.2/gateway-v1.1.2.tgz
+    version: v1.1.2
+  - apiVersion: v2
     appVersion: v1.1.1
     created: "2024-09-28T06:20:33.266059624Z"
     description: The Helm chart for IMESH Gateway
@@ -192,4 +216,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-07T04:48:56.564534814Z"
+generated: "2024-10-08T05:44:55.314516028Z"
