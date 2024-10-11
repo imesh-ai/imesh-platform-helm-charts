@@ -7,15 +7,15 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-    helm repo add imesh-agent https://charts.imesh.ai
+    helm repo add imesh https://charts.imesh.ai
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
 the latest versions of the packages.  You can then run `helm search repo
 imesh-agent` to see the charts.
 
-To install the cluster-agent chart:
+To install the agent chart:
 
-    helm install agent imesh-agent/cluster-agent --namespace imesh --create-namespace --set clusterAgent.env.agentToken="<agent_token>"
+    helm install agent imesh/agent --namespace imesh --create-namespace --set clusterAgent.env.agentToken="<agent_token>"
 
 To uninstall the chart:
 
@@ -76,3 +76,23 @@ To install the ratelimit chart in default mode:
 To uninstall the chart:
 
     helm delete imesh-ratelimit --namespace imesh
+
+---
+
+## IMESH API Gateway Installation
+
+Once Helm has been set up correctly, add the repo as follows:
+
+    helm repo add imesh https://charts.imesh.ai
+
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages.  You can then run `helm search repo
+imesh` to see the charts.
+
+To install the gateway chart in default mode:
+
+    helm install imesh-gateway imesh/gateway --namespace ingress --create-namespace
+
+To uninstall the chart:
+
+    helm delete imesh-gateway --namespace imesh
