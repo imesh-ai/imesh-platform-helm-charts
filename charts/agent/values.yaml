@@ -7,7 +7,7 @@ clusterAgent:
     tag: vb29b99faa9a02348f3cf30d84f80a6ec0833084f
 
   imagePullSecrets: []
-  nameOverride: ""
+  nameOverride: "imesh-agent"
   fullnameOverride: ""
 
   serviceAccount:
