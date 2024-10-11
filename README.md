@@ -15,7 +15,7 @@ imesh-agent` to see the charts.
 
 To install the agent chart:
 
-    helm install agent imesh/agent --namespace imesh --create-namespace --set clusterAgent.env.agentToken="<agent_token>"
+    helm install agent imesh/agent --namespace imesh --create-namespace --set clusterAgent.env.agentToken="<agent_token>" --wait
 
 To uninstall the chart:
 
