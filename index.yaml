@@ -3,6 +3,21 @@ entries:
   agent:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-03-12T22:28:18.625131557Z"
+    dependencies:
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 25.21.0
+    description: A Helm chart for Kubernetes
+    digest: 5937855073a506e6187a920d22ab53f019679120c3f45d9f67cf62a43b5d7cd6
+    name: agent
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/agent-0.1.4/agent-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-01-06T17:42:51.12101918Z"
     dependencies:
     - condition: prometheus.enabled
@@ -302,4 +317,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-07T03:10:27.308095874Z"
+generated: "2025-03-12T22:28:18.625158378Z"
