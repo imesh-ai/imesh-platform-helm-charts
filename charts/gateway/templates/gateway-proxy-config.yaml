@@ -23,5 +23,5 @@ spec:
     kubernetes:
       envoyDeployment:
         container:
-          image: docker.io/istio/proxyv2:1.24.2-distroless
+          image: docker.io/istio/proxyv2:1.25.1-distroless
     type: Kubernetes
