@@ -223,6 +223,30 @@ entries:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/gateway-v1.3.2/gateway-v1.3.2.tgz
     version: v1.3.2
   - apiVersion: v2
+    appVersion: v1.3.2-rc3
+    created: "2025-05-05T06:21:32.101063852Z"
+    description: The Helm chart for IMESH Gateway
+    digest: bc0f244f4a396b235a9dff8a65c496af5faedc1b187b42bdca7e814348b10592
+    home: https://imesh.ai/
+    icon: https://imesh-platform.s3.amazonaws.com/IMESH-Platform-Logo.png
+    keywords:
+    - gateway-api
+    - envoyproxy
+    - envoy-gateway
+    - eg
+    maintainers:
+    - name: envoy-gateway-steering-committee
+      url: https://github.com/envoyproxy/gateway/blob/main/GOVERNANCE.md
+    - name: envoy-gateway-maintainers
+      url: https://github.com/envoyproxy/gateway/blob/main/CODEOWNERS
+    name: gateway
+    sources:
+    - https://github.com/envoyproxy/gateway
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/gateway-v1.3.2-rc3/gateway-v1.3.2-rc3.tgz
+    version: v1.3.2-rc3
+  - apiVersion: v2
     appVersion: v1.3.2-rc2
     created: "2025-05-05T05:22:58.648405085Z"
     description: The Helm chart for IMESH Gateway
@@ -389,4 +413,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-05T05:22:58.648440762Z"
+generated: "2025-05-05T06:21:32.101116189Z"
