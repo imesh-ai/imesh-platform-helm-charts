@@ -84,6 +84,8 @@ spec:
         - mountPath: /certs
           name: certs
           readOnly: true
+        - mountPath: /etc/eg-extension-uds/
+          name: ext-socket
       {{- include "eg.image.pullSecrets" . | nindent 6 }}
       {{- with .Values.deployment.priorityClassName }}
       priorityClassName: {{ . | quote }}
@@ -98,3 +100,5 @@ spec:
       - name: certs
         secret:
           secretName: envoy-gateway
+      - emptyDir: {}
+        name: ext-socket

@@ -1,0 +1,119 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: upstreamtlspolicies.security.imesh.ai
+spec:
+  group: security.imesh.ai
+  names:
+    kind: UpstreamTLSPolicy
+    plural: upstreamtlspolicies
+    singular: upstreamtlspolicy
+    shortNames:
+      - utlsp
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            apiVersion:
+              type: string
+              description: "API version of the resource, should be security.imesh.ai/v1alpha1"
+            kind:
+              type: string
+              description: "Kind of the resource, should be UpstreamTLSPolicy"
+            metadata:
+              type: object
+            spec:
+              type: object
+              required:
+                - targetRef
+                - mode
+              properties:
+                targetRef:
+                  type: object
+                  description: "Reference to the target this policy applies to"
+                  required:
+                    - kind
+                  properties:
+                    kind:
+                      type: string
+                      description: "Kind of the target (Gateway or HTTPRoute)"
+                      enum:
+                        - HTTPRoute
+                        - Gateway
+                    name:
+                      type: string
+                      description: "Name of the target resource (required for Service and Namespace kinds)"
+                    namespace:
+                      type: string
+                      description: "Namespace of the target resource (required for Service kind, optional for Namespace kind)"
+                    group:
+                      type: string
+                      description: "API group of the target resource (e.g., 'apps', 'networking.k8s.io')"
+                mode:
+                  type: string
+                  description: "TLS mode to apply (e.g., STRICT, PERMISSIVE, DISABLED)"
+                  enum:
+                    - STRICT
+                    - PERMISSIVE
+                    - DISABLED
+                sds:
+                  type: object
+                  description: "Secret Discovery Service configuration for TLS certificates"
+                  properties:
+                    secretName:
+                      type: string
+                      description: "Name of the Kubernetes secret containing TLS certificates"
+                  required:
+                    - secretName
+                tls:
+                  type: object
+                  description: "TLS configuration options"
+                  properties:
+                    alpnProtocols:
+                      type: array
+                      description: "Application-Layer Protocol Negotiation protocols to advertise"
+                      items:
+                        type: string
+                        enum:
+                          - h2
+                          - http/1.1
+                          - http/1.0
+                    minProtocolVersion:
+                      type: string
+                      description: "Minimum TLS protocol version to accept"
+                      enum:
+                        - TLSv1_0
+                        - TLSv1_1
+                        - TLSv1_2
+                        - TLSv1_3
+                    maxProtocolVersion:
+                      type: string
+                      description: "Maximum TLS protocol version to accept"
+                      enum:
+                        - TLSv1_0
+                        - TLSv1_1
+                        - TLSv1_2
+                        - TLSv1_3
+            status:
+              type: object
+              description: "Status of the UpstreamTLSPolicy resource"
+      additionalPrinterColumns:
+        - name: Mode
+          type: string
+          jsonPath: .spec.mode
+        - name: Target-Kind
+          type: string
+          jsonPath: .spec.targetRef.kind
+        - name: Target-Name
+          type: string
+          jsonPath: .spec.targetRef.name
+        - name: Age
+          type: date
+          jsonPath: .metadata.creationTimestamp
+      subresources:
+        status: {}

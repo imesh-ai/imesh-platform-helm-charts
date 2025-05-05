@@ -128,6 +128,4 @@ provider:
       {{- end }}
     shutdownManager:
       image: {{ include "eg.image" . }}
-extensionApis:
-  enableEnvoyPatchPolicy: true
 {{- end }}

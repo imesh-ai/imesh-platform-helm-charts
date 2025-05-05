@@ -23,5 +23,65 @@ spec:
     kubernetes:
       envoyDeployment:
         container:
-          image: docker.io/istio/proxyv2:1.25.1-distroless
+          # image: docker.io/istio/proxyv2:1.25.1-distroless
+          image: docker.io/imeshai/envoy-sds-server-dev:v0.0.1
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 2
+              memory: 2Gi
+          env:
+          - name: CA_ADDR
+            value: istiod.istio-system.svc:15012
+          volumeMounts:
+          - mountPath: /etc/istio-certs
+            name: workload-uds-socket
+          - mountPath: /var/run/secrets/istio
+            name: istiod-ca-cert
+            readOnly: true
+          - mountPath: /var/run/secrets/tokens
+            name: istio-token
+            readOnly: true
+        pod:
+          volumes:
+          - emptyDir: {}
+            name: workload-uds-socket
+          - configMap:
+              defaultMode: 420
+              name: istio-ca-root-cert
+            name: istiod-ca-cert
+          - name: istio-token
+            projected:
+              defaultMode: 420
+              sources:
+              - serviceAccountToken:
+                  audience: istio-ca
+                  expirationSeconds: 43200
+                  path: istio-token
     type: Kubernetes
+  routingType: Service
+  bootstrap:
+    type: JSONPatch
+    jsonPatches:
+    - op: add
+      path: /static_resources/clusters/-
+      value:
+        name: sds-grpc
+        alt_stat_name: sds-grpc
+        connect_timeout: 10s
+        type: STATIC
+        load_assignment:
+          cluster_name: sds-grpc
+          endpoints:
+            - lb_endpoints:
+                - endpoint:
+                    address:
+                      pipe:
+                        path: "/etc/istio-certs/sds.sock"
+        typed_extension_protocol_options:
+          envoy.extensions.upstreams.http.v3.HttpProtocolOptions:
+            '@type': type.googleapis.com/envoy.extensions.upstreams.http.v3.HttpProtocolOptions
+            explicit_http_config:
+              http2_protocol_options: {}
