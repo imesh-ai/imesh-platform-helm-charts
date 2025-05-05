@@ -1,10 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: {{ include "eg.fullname" . }}-extension-server-role
   namespace: '{{ .Release.Namespace }}'
-  labels:
-  {{- include "eg.labels" . | nindent 4 }}
 rules:
 - apiGroups:
   - security.imesh.ai
@@ -21,15 +19,13 @@ rules:
   - delete
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: {{ include "eg.fullname" . }}-extension-server-rolebinding
   namespace: '{{ .Release.Namespace }}'
-  labels:
-  {{- include "eg.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: '{{ include "eg.fullname" . }}-extension-server-role'
 subjects:
 - kind: ServiceAccount
