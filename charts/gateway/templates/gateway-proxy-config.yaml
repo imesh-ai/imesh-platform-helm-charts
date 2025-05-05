@@ -24,7 +24,7 @@ spec:
       envoyDeployment:
         container:
           # image: docker.io/istio/proxyv2:1.25.1-distroless
-          image: docker.io/imeshai/envoy-sds-server-dev:v0.0.1
+          image: docker.io/imeshai/envoy-dev:v0.0.1
           resources:
             requests:
               cpu: 100m
