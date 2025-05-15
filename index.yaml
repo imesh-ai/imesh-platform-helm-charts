@@ -3,6 +3,21 @@ entries:
   agent:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-05-15T09:34:36.513451464Z"
+    dependencies:
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 25.21.0
+    description: A Helm chart for Kubernetes
+    digest: 56bba2c290b48d2caad87f78c3b3879b47a86348c5b8659d6a9305160f720a68
+    name: agent
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/agent-0.1.5/agent-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-03-12T22:28:18.625131557Z"
     dependencies:
     - condition: prometheus.enabled
@@ -223,6 +238,30 @@ entries:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/gateway-v1.3.2/gateway-v1.3.2.tgz
     version: v1.3.2
   - apiVersion: v2
+    appVersion: v1.3.2
+    created: "2025-05-15T09:34:36.728233319Z"
+    description: The Helm chart for IMESH Gateway
+    digest: e5ad29d4a043398d5d6126d31e12f8caefede4e1a2fa58fde6dd29bcdcabae4f
+    home: https://imesh.ai/
+    icon: https://imesh-platform.s3.amazonaws.com/IMESH-Platform-Logo.png
+    keywords:
+    - gateway-api
+    - envoyproxy
+    - envoy-gateway
+    - eg
+    maintainers:
+    - name: envoy-gateway-steering-committee
+      url: https://github.com/envoyproxy/gateway/blob/main/GOVERNANCE.md
+    - name: envoy-gateway-maintainers
+      url: https://github.com/envoyproxy/gateway/blob/main/CODEOWNERS
+    name: gateway
+    sources:
+    - https://github.com/envoyproxy/gateway
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/gateway-v1.3.2-rc6/gateway-v1.3.2-rc6.tgz
+    version: v1.3.2-rc6
+  - apiVersion: v2
     appVersion: v1.3.2-rc5
     created: "2025-05-05T07:10:21.88275689Z"
     description: The Helm chart for IMESH Gateway
@@ -433,6 +472,16 @@ entries:
   ratelimit:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-05-15T09:34:36.927272295Z"
+    description: A Helm chart for istio service mesh ratelimit.
+    digest: 83769b2d008327ac03a4bd3b1ea089d5e5a0183ced2b6bc864e6f8d7458f9afc
+    name: ratelimit
+    type: application
+    urls:
+    - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.3/ratelimit-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-09-10T11:33:27.394679024Z"
     description: A Helm chart for istio service mesh ratelimit.
     digest: cc037b08dbee0888de41efd9c540734a4fa35ba58e7120d28e277ec14a997f4b
@@ -461,4 +510,4 @@ entries:
     urls:
     - https://github.com/imesh-ai/imesh-platform-helm-charts/releases/download/ratelimit-0.1.0/ratelimit-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-05T07:10:21.882837962Z"
+generated: "2025-05-15T09:34:36.927379516Z"
