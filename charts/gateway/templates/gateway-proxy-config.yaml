@@ -35,6 +35,18 @@ spec:
           env:
           - name: CA_ADDR
             value: istiod.istio-system.svc:15012
+          - name: CA_CERT_SIGNER
+            value: ""
+          - name: CA_TRUST_DOMAIN
+            value: "cluster.local"
+          - name: NS_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: SA_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.serviceAccountName
           volumeMounts:
           - mountPath: /etc/istio-certs
             name: workload-uds-socket
